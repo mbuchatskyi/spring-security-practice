@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<title>Register</title>
+</head>
+
+<body>
+
+<div class="col-md-offset-2">
+    <h2>Register</h2>
+</div>
+
+<form class="form-horizontal" th:action="@{/register}" th:object="${user}" method="post">
+    <div class="form-group form-style">
+        <label class="col-sm-2 control-label" for="name">First name:</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" th:field="*{name}" id="name"/>
+            <small class="form-text text-muted" th:if="${#fields.hasErrors('name')}"
+                   th:errors="*{name}"></small>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="email">E-mail:</label>
+        <div class="col-sm-8">
+            <input type="email" class="form-control" th:field="*{email}" id="email"/>
+            <small class="form-text text-muted" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="address">Address:</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" th:field="*{address}" id="address"/>
+            <small class="form-text text-muted" th:if="${#fields.hasErrors('address')}"
+                   th:errors="*{address}"></small>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="last-name" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password:</label>
+        <div class="col-sm-8">
+            <input type="password" class="form-control" th:field="*{password}" id="password"/>
+            <small class="form-text text-muted" th:if="${#fields.hasErrors('password')}"
+                   th:errors="*{password}"></small>
+        </div>
+    </div>
+    
+     <div style= "margin-left: 600px;">
+        <input type="submit" class="btn btn-info" value="Register"/>
+        <input type="reset" class="btn btn" value="Clear"/>
+    </div>
+    </div>
+  
+</form>
+</body>
+</html>

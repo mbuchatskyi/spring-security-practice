@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>Login</title>
+</head>
+
+<body>
+	<div style= "margin-left: 600px; width: 30%; padding: 10px;">
+		<h1 style="font-family: Arial;">Login Page</h1>
+		
+		<div th:if="${param.error}">
+			<h4>Username or password is not correct!</h4>
+		</div>
+		
+		<form th:action="@{/login}" method="POST">
+			<div>
+				<label for="username">Username:</label>
+				<div >
+					<input type="text" name="username" id="username"  /> 
+				</div>
+			</div>
+
+			<div>
+				<label for="password">Password:</label>
+				<div>
+					<input type="password" name="password" id="password" /> 
+				</div>
+			</div>
+				
+			<div>
+				<br>
+				<input type="submit" class="btn btn-info" value="LogIn" /> 
+			</div>
+
+		</form>
+		<div>
+			<br>
+			 <a href="/register">You can register the new account here!</a>
+		</div>
+	</div>
+</body>
+</html>
